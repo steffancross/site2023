@@ -5,6 +5,9 @@ const mainSlice = createSlice({
   initialState: {
     about: false,
     blocks: false,
+    idc: false,
+    adhoc: false,
+    firstVisit: true,
   },
   reducers: {
     setAbout: (state, action) => {
@@ -13,8 +16,18 @@ const mainSlice = createSlice({
     setBlocks: (state, action) => {
       state.blocks = action.payload;
     },
+    setIdc: (state, action) => {
+      state.idc = action.payload;
+    },
+    setAdhoc: (state, action) => {
+      state.adhoc = action.payload;
+    },
+    setFirstVisit: (state, action) => {
+      state.firstVisit = action.payload;
+    },
   },
 });
 
-export const { setAbout, setBlocks } = mainSlice.actions;
+export const { setAbout, setBlocks, setIdc, setAdhoc, setFirstVisit } =
+  mainSlice.actions;
 export default mainSlice.reducer;
