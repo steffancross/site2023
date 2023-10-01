@@ -3,6 +3,7 @@ import { DvdScreensaver } from "stffn-react-dvd-screensaver";
 import { useDispatch } from "react-redux";
 import About from "./components/About";
 import { setAbout } from "./components/MainSlice";
+import { motion } from "framer-motion";
 
 function App() {
   const dispatch = useDispatch();
@@ -21,6 +22,19 @@ function App() {
     setFirstVisit(false);
   }
 
+  const moversVariant = {
+    initial: {
+      opacity: 0,
+    },
+    visible: {
+      opacity: 1,
+      transition: {
+        duration: 1.5,
+        delay: 1.5,
+      },
+    },
+  };
+
   return (
     <>
       <button className="freeze" onClick={toggleFreeze}>
@@ -28,11 +42,26 @@ function App() {
       </button>
       <div className="container">
         <DvdScreensaver className="parent" speed={speed} freezeOnBool={freeze}>
-          <div className="child" onClick={() => dispatch(setAbout(true))}>
+          <motion.div
+            className="child"
+            onClick={() => dispatch(setAbout(true))}
+            variants={moversVariant}
+            initial="initial"
+            animate="visible"
+          >
             ABOUT
-          </div>
+          </motion.div>
         </DvdScreensaver>
-        <DvdScreensaver className="parent" speed={speed} freezeOnBool={freeze}>
+      </div>
+      <About />
+    </>
+  );
+}
+
+export default App;
+
+{
+  /* <DvdScreensaver className="parent" speed={speed} freezeOnBool={freeze}>
           <div className="child">BLOCKS</div>
         </DvdScreensaver>
         <DvdScreensaver className="parent" speed={speed} freezeOnBool={freeze}>
@@ -49,11 +78,5 @@ function App() {
         </DvdScreensaver>
         <DvdScreensaver className="parent" speed={speed} freezeOnBool={freeze}>
           <div className="child">LEGACY SITE</div>
-        </DvdScreensaver>
-      </div>
-      <About />
-    </>
-  );
+        </DvdScreensaver> */
 }
-
-export default App;
