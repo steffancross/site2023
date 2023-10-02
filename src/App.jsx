@@ -13,25 +13,14 @@ function App() {
   const dispatch = useDispatch();
   const speed = 3;
   const [freeze, setFreeze] = useState(true);
-  const [firstVisit, setFirstVisit] = useState(true);
 
   const toggleFreeze = () => {
     setFreeze((prev) => !prev);
   };
 
-  async function onFirstLoad() {
-    if (firstVisit) {
-      await new Promise((resolve) => {
-        setTimeout(() => {
-          toggleFreeze();
-          resolve();
-        }, 1000);
-      });
-      setFirstVisit(false);
-    }
-  }
-
-  onFirstLoad();
+  setTimeout(() => {
+    toggleFreeze();
+  }, 1000);
 
   const moversVariant = {
     initial: {
@@ -55,7 +44,7 @@ function App() {
         transition={{ duration: 1.5 }}
       >
         <p>STEFFAN CROSS</p>
-        <button onClick={toggleFreeze}>{freeze ? "unfreeze" : "freeze"}</button>
+        <button onClick={toggleFreeze}>UN/FREEZE</button>
       </motion.div>
       <div className="container">
         <DvdScreensaver className="parent" speed={speed} freezeOnBool={freeze}>
