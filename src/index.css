@@ -1,5 +1,16 @@
 body {
   margin: 0;
+  font-family: Helvetica;
+  background-color: #6495ed;
+  color: #fff8dc;
+}
+
+a {
+  text-decoration: none;
+}
+
+a:visited {
+  color: black;
 }
 
 .container {
@@ -37,17 +48,24 @@ body {
 }
 
 img {
-  width: 300px;
+  width: 100%;
 }
 
 /* POPUP */
 .popup-content {
   /* margin: auto; */
   background: rgb(255, 255, 255);
-  width: 50%;
-  padding: 5px;
+  width: 60%;
+  height: 70%;
+  overflow-y: scroll;
 }
 
 .popup-overlay {
   background: rgba(0, 0, 0, 0.5);
+}
+
+/* PROJECTS */
+.projects h1 {
+  margin-top: 0;
+  text-align: justify;
 }

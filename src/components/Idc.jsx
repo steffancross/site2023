@@ -2,7 +2,7 @@
 import Popup from "reactjs-popup";
 import { useSelector, useDispatch } from "react-redux";
 import { setIdc } from "./MainSlice";
-import idc from "../img/idc.png";
+import image from "../img/idc.png";
 
 const Idc = () => {
   const dispatch = useDispatch();
@@ -13,7 +13,7 @@ const Idc = () => {
       <Popup open={open} onClose={() => dispatch(setIdc(false))} modal>
         <div className="projects">
           <h1>INFINITE DUNGEON CRAWLER</h1>
-          <img src={idc}></img>
+          <img src={image}></img>
           <p>
             Infinite Dungeon Crawler is an AI-powered, text-based adventure
             game. Inspired by the game Zork and choose-your-own-adventure books,
@@ -25,8 +25,12 @@ const Idc = () => {
             based on our own interests. Of course, it's powered by the biggest
             name at the time: ChatGPT.
           </p>
-          <a href="">Github</a>
-          <a href="">Live Site</a>
+          <a href="https://github.com/steffancross/Infinite-Dungeon-Crawler">
+            Github
+          </a>
+          <a href="https://infinite-dungeon-crawler-production.up.railway.app/">
+            Live Site
+          </a>
         </div>
       </Popup>
     );

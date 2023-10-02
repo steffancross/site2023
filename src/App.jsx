@@ -3,12 +3,14 @@ import { DvdScreensaver } from "stffn-react-dvd-screensaver";
 import { useDispatch } from "react-redux";
 import About from "./components/About";
 import Idc from "./components/Idc";
-import { setAbout, setIdc } from "./components/MainSlice";
+import Blocks from "./components/Blocks";
+import Adhoc from "./components/Adhoc";
+import { setAbout, setIdc, setAdhoc, setBlocks } from "./components/MainSlice";
 import { motion } from "framer-motion";
 
 function App() {
   const dispatch = useDispatch();
-  const speed = 2.5;
+  const speed = 3;
   const [freeze, setFreeze] = useState(true);
   const [firstVisit, setFirstVisit] = useState(true);
 
@@ -70,30 +72,59 @@ function App() {
             INFINITE DUNGEON CRAWLER
           </motion.div>
         </DvdScreensaver>
+        <DvdScreensaver className="parent" speed={speed} freezeOnBool={freeze}>
+          <motion.div
+            className="child"
+            onClick={() => dispatch(setAdhoc(true))}
+            variants={moversVariant}
+            initial="initial"
+            animate="visible"
+          >
+            AD.HOC
+          </motion.div>
+        </DvdScreensaver>
+        <DvdScreensaver className="parent" speed={speed} freezeOnBool={freeze}>
+          <motion.div
+            className="child"
+            onClick={() => dispatch(setBlocks(true))}
+            variants={moversVariant}
+            initial="initial"
+            animate="visible"
+          >
+            BLOCKS
+          </motion.div>
+        </DvdScreensaver>
+        <DvdScreensaver className="parent" speed={speed} freezeOnBool={freeze}>
+          <motion.a
+            href="https://www.linkedin.com/in/steffancross/"
+            target="_blank"
+            className="child"
+            variants={moversVariant}
+            initial="initial"
+            animate="visible"
+          >
+            LINKEDIN
+          </motion.a>
+        </DvdScreensaver>
+        <DvdScreensaver className="parent" speed={speed} freezeOnBool={freeze}>
+          <motion.a
+            href="https://steffancross.github.io/"
+            target="_blank"
+            className="child"
+            variants={moversVariant}
+            initial="initial"
+            animate="visible"
+          >
+            LEGACY SITE
+          </motion.a>
+        </DvdScreensaver>
       </div>
       <About />
       <Idc />
+      <Blocks />
+      <Adhoc />
     </>
   );
 }
 
 export default App;
-
-{
-  /* <DvdScreensaver className="parent" speed={speed} freezeOnBool={freeze}>
-          <div className="child">BLOCKS</div>
-        </DvdScreensaver>
-        
-        <DvdScreensaver className="parent" speed={speed} freezeOnBool={freeze}>
-          <div className="child">AD.HOC</div>
-        </DvdScreensaver>
-        <DvdScreensaver className="parent" speed={speed} freezeOnBool={freeze}>
-          <div className="child">LINKEDIN</div>
-        </DvdScreensaver>
-        <DvdScreensaver className="parent" speed={speed} freezeOnBool={freeze}>
-          <div className="child">RESUME</div>
-        </DvdScreensaver>
-        <DvdScreensaver className="parent" speed={speed} freezeOnBool={freeze}>
-          <div className="child">LEGACY SITE</div>
-        </DvdScreensaver> */
-}
