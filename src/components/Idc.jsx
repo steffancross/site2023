@@ -2,7 +2,7 @@
 import Popup from "reactjs-popup";
 import { useSelector, useDispatch } from "react-redux";
 import { setIdc } from "./MainSlice";
-import image from "../img/idc.png";
+import image from "../assets/idc.png";
 
 const Idc = () => {
   const dispatch = useDispatch();

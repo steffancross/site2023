@@ -1,12 +1,13 @@
 import { useState } from "react";
 import { DvdScreensaver } from "stffn-react-dvd-screensaver";
 import { useDispatch } from "react-redux";
+import { motion } from "framer-motion";
+import { setAbout, setIdc, setAdhoc, setBlocks } from "./components/MainSlice";
+import resume from "./assets/SteffanCross_Resume.pdf";
 import About from "./components/About";
 import Idc from "./components/Idc";
 import Blocks from "./components/Blocks";
 import Adhoc from "./components/Adhoc";
-import { setAbout, setIdc, setAdhoc, setBlocks } from "./components/MainSlice";
-import { motion } from "framer-motion";
 
 function App() {
   const dispatch = useDispatch();
@@ -116,6 +117,30 @@ function App() {
             animate="visible"
           >
             LEGACY SITE
+          </motion.a>
+        </DvdScreensaver>
+        <DvdScreensaver className="parent" speed={speed} freezeOnBool={freeze}>
+          <motion.a
+            href={resume}
+            target="_blank"
+            className="child"
+            variants={moversVariant}
+            initial="initial"
+            animate="visible"
+          >
+            RESUME
+          </motion.a>
+        </DvdScreensaver>
+        <DvdScreensaver className="parent" speed={speed} freezeOnBool={freeze}>
+          <motion.a
+            href="https://github.com/steffancross"
+            target="_blank"
+            className="child"
+            variants={moversVariant}
+            initial="initial"
+            animate="visible"
+          >
+            GITHUB
           </motion.a>
         </DvdScreensaver>
       </div>

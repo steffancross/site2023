@@ -2,7 +2,7 @@
 import Popup from "reactjs-popup";
 import { useSelector, useDispatch } from "react-redux";
 import { setBlocks } from "./MainSlice";
-import image from "../img/blocks.png";
+import image from "../assets/blocks.png";
 
 const Blocks = () => {
   const dispatch = useDispatch();

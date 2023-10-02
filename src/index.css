@@ -1,11 +1,10 @@
 body {
   margin: 0;
   font-family: Helvetica;
-  background-color: #6495ed;
-  color: #fff8dc;
 }
 
 a {
+  color: black;
   text-decoration: none;
 }
 

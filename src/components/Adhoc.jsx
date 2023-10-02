@@ -2,7 +2,7 @@
 import Popup from "reactjs-popup";
 import { useSelector, useDispatch } from "react-redux";
 import { setAdhoc } from "./MainSlice";
-import image from "../img/inprogress.png";
+import image from "../assets/inprogress.png";
 
 const Adhoc = () => {
   const dispatch = useDispatch();
