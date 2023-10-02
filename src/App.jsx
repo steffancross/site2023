@@ -2,7 +2,8 @@ import { useState } from "react";
 import { DvdScreensaver } from "stffn-react-dvd-screensaver";
 import { useDispatch } from "react-redux";
 import About from "./components/About";
-import { setAbout } from "./components/MainSlice";
+import Idc from "./components/Idc";
+import { setAbout, setIdc } from "./components/MainSlice";
 import { motion } from "framer-motion";
 
 function App() {
@@ -37,9 +38,15 @@ function App() {
 
   return (
     <>
-      <button className="freeze" onClick={toggleFreeze}>
-        click
-      </button>
+      <motion.div
+        className="freeze"
+        animate={{ opacity: 1 }}
+        initial={{ opacity: 0 }}
+        transition={{ duration: 1.5 }}
+      >
+        <p>STEFFAN CROSS</p>
+        <button onClick={toggleFreeze}>click</button>
+      </motion.div>
       <div className="container">
         <DvdScreensaver className="parent" speed={speed} freezeOnBool={freeze}>
           <motion.div
@@ -52,8 +59,20 @@ function App() {
             ABOUT
           </motion.div>
         </DvdScreensaver>
+        <DvdScreensaver className="parent" speed={speed} freezeOnBool={freeze}>
+          <motion.div
+            className="child"
+            onClick={() => dispatch(setIdc(true))}
+            variants={moversVariant}
+            initial="initial"
+            animate="visible"
+          >
+            INFINITE DUNGEON CRAWLER
+          </motion.div>
+        </DvdScreensaver>
       </div>
       <About />
+      <Idc />
     </>
   );
 }
@@ -64,9 +83,7 @@ export default App;
   /* <DvdScreensaver className="parent" speed={speed} freezeOnBool={freeze}>
           <div className="child">BLOCKS</div>
         </DvdScreensaver>
-        <DvdScreensaver className="parent" speed={speed} freezeOnBool={freeze}>
-          <div className="child">INFINITE DUNGEON CRAWLER</div>
-        </DvdScreensaver>
+        
         <DvdScreensaver className="parent" speed={speed} freezeOnBool={freeze}>
           <div className="child">AD.HOC</div>
         </DvdScreensaver>
