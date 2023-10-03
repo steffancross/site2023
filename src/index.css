@@ -1,6 +1,7 @@
 body {
   margin: 0;
   font-family: Helvetica;
+  text-rendering: geometricPrecision;
 }
 
 a {
@@ -53,7 +54,7 @@ a:visited {
   margin-bottom: 5px;
   margin-top: 0;
   width: max-content;
-  letter-spacing: 0.15rem;
+  letter-spacing: 0.1rem;
 }
 
 .freeze button {
@@ -70,12 +71,13 @@ a:visited {
 .popup-content {
   background: rgb(255, 255, 255);
   width: 60%;
-  /* height: 70%; */
   overflow-y: auto;
+  border-radius: 7px;
 }
 
 .popup-overlay {
-  background: rgba(0, 0, 0, 0.5);
+  background: rgba(0, 0, 0, 0.4);
+  backdrop-filter: blur(2px);
 }
 
 /* PROJECTS */
@@ -118,4 +120,74 @@ a:visited {
 .links {
   display: flex;
   align-items: start;
+}
+
+/* ABOUT */
+.about {
+  display: flex;
+  padding: 0px 15px 0px 0px;
+}
+
+.about-image {
+  width: 50%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.about-image img {
+  width: 80%;
+  margin: 20px 0px 20px 0px;
+}
+
+.about-text {
+  width: 50%;
+  font-size: 0.7rem;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+}
+
+.about-text p {
+  margin-bottom: 0px;
+}
+
+.about-text a {
+  text-decoration: underline;
+  margin-top: 10px;
+}
+
+.about-text a:last-child {
+  text-decoration: underline;
+  margin-top: 10px;
+  margin-bottom: 10px;
+}
+
+/* NON-DESKTOP */
+
+@media (max-width: 850px) {
+  .popup-content {
+    width: 80%;
+  }
+}
+
+@media (max-width: 500px) {
+  .about {
+    flex-direction: column;
+    align-items: center;
+    padding: 0px 0px 0px 0px;
+  }
+
+  .about-image {
+    width: 100%;
+  }
+
+  .about-image img {
+    width: 70%;
+    margin: 20px 0px 20px 0px;
+  }
+
+  .about-text {
+    width: 80%;
+  }
 }

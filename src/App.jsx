@@ -30,7 +30,7 @@ function App() {
       opacity: 1,
       transition: {
         duration: 2,
-        delay: 1.5,
+        delay: 1,
       },
     },
   };
@@ -44,7 +44,7 @@ function App() {
         transition={{ duration: 1.5 }}
       >
         <p>STEFFAN CROSS</p>
-        <button onClick={toggleFreeze}>UN/FREEZE</button>
+        <button onClick={toggleFreeze}>UN / FREEZE</button>
       </motion.div>
       <div className="container">
         <DvdScreensaver className="parent" speed={speed} freezeOnBool={freeze}>
@@ -95,6 +95,7 @@ function App() {
           <motion.a
             href="https://www.linkedin.com/in/steffancross/"
             target="_blank"
+            rel="noreferrer"
             className="child"
             variants={moversVariant}
             initial="initial"
@@ -107,6 +108,7 @@ function App() {
           <motion.a
             href="https://steffancross.github.io/"
             target="_blank"
+            rel="noreferrer"
             className="child"
             variants={moversVariant}
             initial="initial"
@@ -131,6 +133,7 @@ function App() {
           <motion.a
             href="https://github.com/steffancross"
             target="_blank"
+            rel="noreferrer"
             className="child"
             variants={moversVariant}
             initial="initial"
