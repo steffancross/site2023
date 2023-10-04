@@ -16,8 +16,18 @@ const Blocks = () => {
         <div className="title-and-links">
           <h3>Blocks</h3>
           <div className="links">
-            <a href="https://github.com/steffancross/blocks">Github</a>
-            <a href="https://blocks-production-845f.up.railway.app/">
+            <a
+              href="https://github.com/steffancross/blocks"
+              target="_blank"
+              rel="noreferrer"
+            >
+              Github
+            </a>
+            <a
+              href="https://blocks-production-845f.up.railway.app/"
+              target="_blank"
+              rel="noreferrer"
+            >
               Live Site
             </a>
           </div>

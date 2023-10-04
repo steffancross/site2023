@@ -16,10 +16,18 @@ const Idc = () => {
         <div className="title-and-links">
           <h3>Infinite Dungeon Crawler</h3>
           <div className="links">
-            <a href="https://github.com/steffancross/Infinite-Dungeon-Crawler">
+            <a
+              href="https://github.com/steffancross/Infinite-Dungeon-Crawler"
+              target="_blank"
+              rel="noreferrer"
+            >
               Github
             </a>
-            <a href="https://infinite-dungeon-crawler-production.up.railway.app/">
+            <a
+              href="https://infinite-dungeon-crawler-production.up.railway.app/"
+              target="_blank"
+              rel="noreferrer"
+            >
               Live Site
             </a>
           </div>

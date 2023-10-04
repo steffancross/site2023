@@ -16,7 +16,13 @@ const Adhoc = () => {
         <div className="title-and-links">
           <h3>Ad.Hoc</h3>
           <div className="links">
-            <a href="https://github.com/steffancross/strings">Github</a>
+            <a
+              href="https://github.com/steffancross/strings"
+              target="_blank"
+              rel="noreferrer"
+            >
+              Github
+            </a>
           </div>
         </div>
         <div className="centering-div">
