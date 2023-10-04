@@ -1,9 +1,16 @@
 /* eslint-disable react/no-unescaped-entities */
 import image from "../assets/about.jpg";
+import { motion } from "framer-motion";
 
 const About = () => {
   return (
-    <div className="popup">
+    <motion.div
+      className="popup"
+      initial={{ opacity: 0 }}
+      animate={{ opacity: 1 }}
+      exit={{ opacity: 0 }}
+      transition={{ duration: 0.5 }}
+    >
       <div className="about">
         <div className="about-image">
           <img src={image} />
@@ -37,7 +44,7 @@ const About = () => {
           <a href="mailto: steffancross@berkeley.edu">Email</a>
         </div>
       </div>
-    </div>
+    </motion.div>
   );
 };
 

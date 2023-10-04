@@ -1,7 +1,7 @@
 import { useState } from "react";
 import { DvdScreensaver } from "stffn-react-dvd-screensaver";
 import { useSelector, useDispatch } from "react-redux";
-import { motion } from "framer-motion";
+import { motion, AnimatePresence } from "framer-motion";
 import {
   setAbout,
   setIdc,
@@ -10,22 +10,13 @@ import {
   setOverlay,
 } from "./components/MainSlice";
 import resume from "./assets/SteffanCross_Resume.pdf";
-import About from "./components/About";
-import Idc from "./components/Idc";
-import Blocks from "./components/Blocks";
-import Adhoc from "./components/Adhoc";
 import Overlay from "./components/Overlay";
 
 function App() {
-  const about = useSelector((state) => state.main.about);
-  const blocks = useSelector((state) => state.main.blocks);
-  const idc = useSelector((state) => state.main.idc);
-  const adhoc = useSelector((state) => state.main.adhoc);
-  const overlay = useSelector((state) => state.main.overlay);
-
   const dispatch = useDispatch();
   const speed = 3;
   const [freeze, setFreeze] = useState(true);
+  const overlay = useSelector((state) => state.main.overlay);
 
   const toggleFreeze = () => {
     setFreeze((prev) => !prev);
@@ -174,11 +165,7 @@ function App() {
           </motion.a>
         </DvdScreensaver>
       </div>
-      {about && <About />}
-      {idc && <Idc />}
-      {blocks && <Blocks />}
-      {adhoc && <Adhoc />}
-      {overlay && <Overlay />}
+      <AnimatePresence>{overlay && <Overlay />}</AnimatePresence>
     </>
   );
 }
