@@ -16,6 +16,7 @@ function App() {
   const dispatch = useDispatch();
   const speed = 3;
   const [freeze, setFreeze] = useState(true);
+  const [freezeSwitch, setFreezeSwitch] = useState(false);
   const overlay = useSelector((state) => state.main.overlay);
 
   const movers = [
@@ -66,6 +67,11 @@ function App() {
     }
   };
 
+  const toggleFreeze = () => {
+    setFreeze((prev) => !prev);
+    setFreezeSwitch((prev) => !prev);
+  };
+
   setTimeout(() => {
     setFreeze((prev) => !prev);
   }, 1000);
@@ -79,9 +85,21 @@ function App() {
         transition={{ duration: 1.5 }}
       >
         <p>STEFFAN CROSS</p>
-        <motion.button onClick={() => setFreeze((prev) => !prev)}>
-          UN / FREEZE
-        </motion.button>
+        <div
+          className="freeze-switch"
+          onClick={toggleFreeze}
+          data-ison={freezeSwitch}
+        >
+          <motion.div
+            className="freeze-handle"
+            data-ison={freezeSwitch}
+            layout
+          ></motion.div>
+          <motion.p id="freeze-text" data-ison={freezeSwitch} layout>
+            {freezeSwitch ? "UNFREEZE" : " FREEZE "}
+          </motion.p>
+          <div className="freeze-spacer"></div>
+        </div>
       </motion.div>
       <div className="container">
         {movers.map((item, index) => (

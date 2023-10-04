@@ -58,13 +58,44 @@ a:visited {
   letter-spacing: 0.1rem;
 }
 
-.freeze button {
-  background-color: black;
-  color: white;
-  border: none;
+.freeze-switch {
+  width: 150px;
+  height: 30px;
+  border: 1px solid black;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  cursor: pointer;
   padding: 0px 5px 0px 5px;
-  width: fit-content;
-  font-size: 1.1rem;
+}
+
+.freeze-switch[data-ison="true"] {
+  flex-direction: row-reverse;
+  background-color: black;
+}
+
+.freeze-handle {
+  width: 20px;
+  height: 20px;
+  background-color: black;
+}
+
+.freeze-handle[data-ison="true"] {
+  background-color: white;
+}
+
+#freeze-text {
+  font-size: 0.8rem;
+  margin: 0;
+  letter-spacing: -0.05rem;
+}
+
+#freeze-text[data-ison="true"] {
+  color: white;
+}
+
+.freeze-spacer {
+  width: 20px;
 }
 
 /* POPUP */
@@ -87,7 +118,7 @@ a:visited {
   width: 60%;
   border-radius: 7px;
   z-index: 999;
-  box-shadow: 0px 10px 40px -10px rgba(0, 0, 0, 0.2);
+  box-shadow: 0px 10px 40px -5px rgba(0, 0, 0, 0.2);
 }
 
 /* PROJECTS */
