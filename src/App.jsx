@@ -2,12 +2,19 @@ import { useState } from "react";
 import { DvdScreensaver } from "stffn-react-dvd-screensaver";
 import { useDispatch } from "react-redux";
 import { motion } from "framer-motion";
-import { setAbout, setIdc, setAdhoc, setBlocks } from "./components/MainSlice";
+import {
+  setAbout,
+  setIdc,
+  setAdhoc,
+  setBlocks,
+  setOverlay,
+} from "./components/MainSlice";
 import resume from "./assets/SteffanCross_Resume.pdf";
 import About from "./components/About";
 import Idc from "./components/Idc";
 import Blocks from "./components/Blocks";
 import Adhoc from "./components/Adhoc";
+import Overlay from "./components/Overlay";
 
 function App() {
   const dispatch = useDispatch();
@@ -21,6 +28,24 @@ function App() {
   setTimeout(() => {
     toggleFreeze();
   }, 1000);
+
+  const handlePopup = (name) => {
+    dispatch(setOverlay(true));
+
+    switch (name) {
+      case "about":
+        dispatch(setAbout(true));
+        break;
+      case "blocks":
+        dispatch(setBlocks(true));
+        break;
+      case "adhoc":
+        dispatch(setAdhoc(true));
+        break;
+      case "idc":
+        dispatch(setIdc(true));
+    }
+  };
 
   const moversVariant = {
     initial: {
@@ -50,7 +75,7 @@ function App() {
         <DvdScreensaver className="parent" speed={speed} freezeOnBool={freeze}>
           <motion.div
             className="child"
-            onClick={() => dispatch(setAbout(true))}
+            onClick={() => handlePopup("about")}
             variants={moversVariant}
             initial="initial"
             animate="visible"
@@ -61,7 +86,7 @@ function App() {
         <DvdScreensaver className="parent" speed={speed} freezeOnBool={freeze}>
           <motion.div
             className="child"
-            onClick={() => dispatch(setIdc(true))}
+            onClick={() => handlePopup("idc")}
             variants={moversVariant}
             initial="initial"
             animate="visible"
@@ -72,7 +97,7 @@ function App() {
         <DvdScreensaver className="parent" speed={speed} freezeOnBool={freeze}>
           <motion.div
             className="child"
-            onClick={() => dispatch(setAdhoc(true))}
+            onClick={() => handlePopup("adhoc")}
             variants={moversVariant}
             initial="initial"
             animate="visible"
@@ -83,7 +108,7 @@ function App() {
         <DvdScreensaver className="parent" speed={speed} freezeOnBool={freeze}>
           <motion.div
             className="child"
-            onClick={() => dispatch(setBlocks(true))}
+            onClick={() => handlePopup("blocks")}
             variants={moversVariant}
             initial="initial"
             animate="visible"
@@ -147,6 +172,7 @@ function App() {
       <Idc />
       <Blocks />
       <Adhoc />
+      <Overlay />
     </>
   );
 }

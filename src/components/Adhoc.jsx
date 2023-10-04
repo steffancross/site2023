@@ -1,16 +1,13 @@
 /* eslint-disable react/no-unescaped-entities */
-import Popup from "reactjs-popup";
-import { useSelector, useDispatch } from "react-redux";
-import { setAdhoc } from "./MainSlice";
+import { useSelector } from "react-redux";
 import image from "../assets/inprogress.png";
 
 const Adhoc = () => {
-  const dispatch = useDispatch();
   const open = useSelector((state) => state.main.adhoc);
 
   if (open) {
     return (
-      <Popup open={open} onClose={() => dispatch(setAdhoc(false))} modal>
+      <div className="popup">
         <div className="projects">
           <img src={image}></img>
           <div className="title-and-links">
@@ -32,7 +29,7 @@ const Adhoc = () => {
             </p>
           </div>
         </div>
-      </Popup>
+      </div>
     );
   }
 };

@@ -1,16 +1,13 @@
 /* eslint-disable react/no-unescaped-entities */
-import Popup from "reactjs-popup";
-import { useSelector, useDispatch } from "react-redux";
-import { setAbout } from "./MainSlice";
+import { useSelector } from "react-redux";
 import image from "../assets/about.jpg";
 
 const About = () => {
-  const dispatch = useDispatch();
   const open = useSelector((state) => state.main.about);
 
   if (open) {
     return (
-      <Popup open={open} onClose={() => dispatch(setAbout(false))} modal>
+      <div className="popup">
         <div className="about">
           <div className="about-image">
             <img src={image} />
@@ -46,7 +43,7 @@ const About = () => {
             <a href="mailto: steffancross@berkeley.edu">Email</a>
           </div>
         </div>
-      </Popup>
+      </div>
     );
   }
 };

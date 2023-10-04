@@ -1,16 +1,13 @@
 /* eslint-disable react/no-unescaped-entities */
-import Popup from "reactjs-popup";
-import { useSelector, useDispatch } from "react-redux";
-import { setIdc } from "./MainSlice";
+import { useSelector } from "react-redux";
 import image from "../assets/idc.png";
 
 const Idc = () => {
-  const dispatch = useDispatch();
   const open = useSelector((state) => state.main.idc);
 
   if (open) {
     return (
-      <Popup open={open} onClose={() => dispatch(setIdc(false))} modal>
+      <div className="popup">
         <div className="projects">
           <img src={image}></img>
           <div className="title-and-links">
@@ -38,7 +35,7 @@ const Idc = () => {
             </p>
           </div>
         </div>
-      </Popup>
+      </div>
     );
   }
 };

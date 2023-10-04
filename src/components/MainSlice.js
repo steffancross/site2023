@@ -7,6 +7,7 @@ const mainSlice = createSlice({
     blocks: false,
     idc: false,
     adhoc: false,
+    overlay: false,
   },
   reducers: {
     setAbout: (state, action) => {
@@ -21,8 +22,23 @@ const mainSlice = createSlice({
     setAdhoc: (state, action) => {
       state.adhoc = action.payload;
     },
+    setOverlay: (state, action) => {
+      state.overlay = action.payload;
+    },
+    setAllFalse: (state) => {
+      for (const key in state) {
+        state[key] = false;
+      }
+    },
   },
 });
 
-export const { setAbout, setBlocks, setIdc, setAdhoc } = mainSlice.actions;
+export const {
+  setAbout,
+  setBlocks,
+  setIdc,
+  setAdhoc,
+  setOverlay,
+  setAllFalse,
+} = mainSlice.actions;
 export default mainSlice.reducer;
