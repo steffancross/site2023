@@ -1,6 +1,6 @@
 import { useState } from "react";
 import { DvdScreensaver } from "stffn-react-dvd-screensaver";
-import { useDispatch } from "react-redux";
+import { useSelector, useDispatch } from "react-redux";
 import { motion } from "framer-motion";
 import {
   setAbout,
@@ -17,6 +17,12 @@ import Adhoc from "./components/Adhoc";
 import Overlay from "./components/Overlay";
 
 function App() {
+  const about = useSelector((state) => state.main.about);
+  const blocks = useSelector((state) => state.main.blocks);
+  const idc = useSelector((state) => state.main.idc);
+  const adhoc = useSelector((state) => state.main.adhoc);
+  const overlay = useSelector((state) => state.main.overlay);
+
   const dispatch = useDispatch();
   const speed = 3;
   const [freeze, setFreeze] = useState(true);
@@ -168,11 +174,11 @@ function App() {
           </motion.a>
         </DvdScreensaver>
       </div>
-      <About />
-      <Idc />
-      <Blocks />
-      <Adhoc />
-      <Overlay />
+      {about && <About />}
+      {idc && <Idc />}
+      {blocks && <Blocks />}
+      {adhoc && <Adhoc />}
+      {overlay && <Overlay />}
     </>
   );
 }
