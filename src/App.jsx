@@ -18,13 +18,35 @@ function App() {
   const [freeze, setFreeze] = useState(true);
   const overlay = useSelector((state) => state.main.overlay);
 
-  const toggleFreeze = () => {
-    setFreeze((prev) => !prev);
-  };
+  const movers = [
+    { text: "ABOUT", action: () => handlePopup("about") },
+    {
+      text: "INFINITE DUNGEON CRAWLER",
+      action: () => handlePopup("idc"),
+    },
+    { text: "AD.HOC", action: () => handlePopup("adhoc") },
+    { text: "BLOCKS", action: () => handlePopup("blocks") },
+    {
+      text: "LINKEDIN",
+      href: "https://www.linkedin.com/in/steffancross/",
+    },
+    { text: "LEGACY SITE", href: "https://steffancross.github.io/" },
+    { text: "RESUME", href: resume },
+    { text: "GITHUB", href: "https://github.com/steffancross" },
+  ];
 
-  setTimeout(() => {
-    toggleFreeze();
-  }, 1000);
+  const moversVariant = {
+    initial: {
+      opacity: 0,
+    },
+    visible: {
+      opacity: 1,
+      transition: {
+        duration: 2,
+        delay: 1,
+      },
+    },
+  };
 
   const handlePopup = (name) => {
     dispatch(setOverlay(true));
@@ -44,18 +66,9 @@ function App() {
     }
   };
 
-  const moversVariant = {
-    initial: {
-      opacity: 0,
-    },
-    visible: {
-      opacity: 1,
-      transition: {
-        duration: 2,
-        delay: 1,
-      },
-    },
-  };
+  setTimeout(() => {
+    setFreeze((prev) => !prev);
+  }, 1000);
 
   return (
     <>
@@ -66,104 +79,41 @@ function App() {
         transition={{ duration: 1.5 }}
       >
         <p>STEFFAN CROSS</p>
-        <button onClick={toggleFreeze}>UN / FREEZE</button>
+        <button onClick={() => setFreeze((prev) => !prev)}>UN / FREEZE</button>
       </motion.div>
       <div className="container">
-        <DvdScreensaver className="parent" speed={speed} freezeOnBool={freeze}>
-          <motion.div
-            className="child"
-            onClick={() => handlePopup("about")}
-            variants={moversVariant}
-            initial="initial"
-            animate="visible"
+        {movers.map((item, index) => (
+          <DvdScreensaver
+            className="parent"
+            key={index}
+            speed={speed}
+            freezeOnBool={freeze}
           >
-            ABOUT
-          </motion.div>
-        </DvdScreensaver>
-        <DvdScreensaver className="parent" speed={speed} freezeOnBool={freeze}>
-          <motion.div
-            className="child"
-            onClick={() => handlePopup("idc")}
-            variants={moversVariant}
-            initial="initial"
-            animate="visible"
-          >
-            INFINITE DUNGEON CRAWLER
-          </motion.div>
-        </DvdScreensaver>
-        <DvdScreensaver className="parent" speed={speed} freezeOnBool={freeze}>
-          <motion.div
-            className="child"
-            onClick={() => handlePopup("adhoc")}
-            variants={moversVariant}
-            initial="initial"
-            animate="visible"
-          >
-            AD.HOC
-          </motion.div>
-        </DvdScreensaver>
-        <DvdScreensaver className="parent" speed={speed} freezeOnBool={freeze}>
-          <motion.div
-            className="child"
-            onClick={() => handlePopup("blocks")}
-            variants={moversVariant}
-            initial="initial"
-            animate="visible"
-          >
-            BLOCKS
-          </motion.div>
-        </DvdScreensaver>
-        <DvdScreensaver className="parent" speed={speed} freezeOnBool={freeze}>
-          <motion.a
-            href="https://www.linkedin.com/in/steffancross/"
-            target="_blank"
-            rel="noreferrer"
-            className="child"
-            variants={moversVariant}
-            initial="initial"
-            animate="visible"
-          >
-            LINKEDIN
-          </motion.a>
-        </DvdScreensaver>
-        <DvdScreensaver className="parent" speed={speed} freezeOnBool={freeze}>
-          <motion.a
-            href="https://steffancross.github.io/"
-            target="_blank"
-            rel="noreferrer"
-            className="child"
-            variants={moversVariant}
-            initial="initial"
-            animate="visible"
-          >
-            LEGACY SITE
-          </motion.a>
-        </DvdScreensaver>
-        <DvdScreensaver className="parent" speed={speed} freezeOnBool={freeze}>
-          <motion.a
-            href={resume}
-            target="_blank"
-            className="child"
-            variants={moversVariant}
-            initial="initial"
-            animate="visible"
-          >
-            RESUME
-          </motion.a>
-        </DvdScreensaver>
-        <DvdScreensaver className="parent" speed={speed} freezeOnBool={freeze}>
-          <motion.a
-            href="https://github.com/steffancross"
-            target="_blank"
-            rel="noreferrer"
-            className="child"
-            variants={moversVariant}
-            initial="initial"
-            animate="visible"
-          >
-            GITHUB
-          </motion.a>
-        </DvdScreensaver>
+            {item.href ? (
+              <motion.a
+                href={item.href}
+                target="_blank"
+                rel="noreferrer"
+                className="child"
+                variants={moversVariant}
+                initial="initial"
+                animate="visible"
+              >
+                {item.text}
+              </motion.a>
+            ) : (
+              <motion.div
+                className="child"
+                onClick={item.action}
+                variants={moversVariant}
+                initial="initial"
+                animate="visible"
+              >
+                {item.text}
+              </motion.div>
+            )}
+          </DvdScreensaver>
+        ))}
       </div>
       <AnimatePresence>{overlay && <Overlay />}</AnimatePresence>
     </>
