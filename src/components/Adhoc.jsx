@@ -6,10 +6,10 @@ const Adhoc = () => {
   return (
     <motion.div
       className="popup"
-      initial={{ opacity: 0 }}
-      animate={{ opacity: 1 }}
+      initial={{ opacity: 0, y: 20 }}
+      animate={{ opacity: 1, y: 0 }}
       exit={{ opacity: 0 }}
-      transition={{ duration: 0.5 }}
+      transition={{ duration: 0.3 }}
     >
       <div className="projects">
         <img src={image}></img>
@@ -22,12 +22,12 @@ const Adhoc = () => {
         <div className="centering-div">
           <p>
             Pinterest, Are.na, and Instagram are all platforms I utilize to save
-            visually intriguing and inspiring content for future reference. Ad
-            Hoc is a hybrid user interface web application designed to fulfill a
-            similar purpose, but with a focus on strictly literary content.
-            Whether it's a single word or a passage that evokes a certain
-            feeling, this application serves as a space to store and categorize
-            such, ensuring they are not lost or forgotten.
+            visually intriguing and inspiring content for future reference.
+            Ad.Hoc is a hybrid user interface web application designed to
+            fulfill a similar purpose, but with a focus on strictly literary
+            content. Whether it's a single word or a passage that evokes a
+            certain feeling, this application serves as a space to store and
+            categorize such, ensuring they are not lost or forgotten.
           </p>
         </div>
       </div>

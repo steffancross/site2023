@@ -79,7 +79,9 @@ function App() {
         transition={{ duration: 1.5 }}
       >
         <p>STEFFAN CROSS</p>
-        <button onClick={() => setFreeze((prev) => !prev)}>UN / FREEZE</button>
+        <motion.button onClick={() => setFreeze((prev) => !prev)}>
+          UN / FREEZE
+        </motion.button>
       </motion.div>
       <div className="container">
         {movers.map((item, index) => (
