@@ -12,7 +12,7 @@ const Blocks = () => {
       transition={{ duration: 0.3 }}
     >
       <div className="projects">
-        <img src={image}></img>
+        <img src={image.src}></img>
         <div className="title-and-links">
           <h3>Blocks</h3>
           <div className="links">

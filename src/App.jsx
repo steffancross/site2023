@@ -9,7 +9,7 @@ import {
   setBlocks,
   setOverlay,
 } from "./components/MainSlice";
-import resume from "./assets/SteffanCross_Resume.pdf";
+// import resume from "./assets/SteffanCross_Resume.pdf";
 import Overlay from "./components/Overlay";
 
 function App() {
@@ -32,7 +32,7 @@ function App() {
       href: "https://www.linkedin.com/in/steffancross/",
     },
     { text: "LEGACY SITE", href: "https://steffancross.github.io/" },
-    { text: "RESUME", href: resume },
+    { text: "RESUME", href: "https://google.com" },
     { text: "GITHUB", href: "https://github.com/steffancross" },
   ];
 
@@ -73,7 +73,7 @@ function App() {
   };
 
   setTimeout(() => {
-    setFreeze((prev) => !prev);
+    setFreeze(false);
   }, 1000);
 
   return (
