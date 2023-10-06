@@ -13,7 +13,7 @@ import Overlay from "./components/Overlay";
 
 function App() {
   const dispatch = useDispatch();
-  const speed = 2;
+  const [speed, setSpeed] = useState(window.innerWidth < 640 ? 1.5 : 2.5);
   const [freeze, setFreeze] = useState(true);
   const [freezeSwitch, setFreezeSwitch] = useState(false);
   const [hasLoaded, setHasLoaded] = useState(false);
@@ -73,6 +73,8 @@ function App() {
   };
 
   useEffect(() => {
+    setSpeed(window.innerWidth < 640 ? 1.5 : 2.5);
+
     if (!hasLoaded) {
       setTimeout(() => {
         setFreeze(false);

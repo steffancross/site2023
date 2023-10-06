@@ -2,6 +2,10 @@
 import { motion } from "framer-motion";
 
 const About = () => {
+  const handlePopupClick = (e) => {
+    e.stopPropagation();
+  };
+
   return (
     <motion.div
       className="popup"
@@ -9,6 +13,7 @@ const About = () => {
       animate={{ opacity: 1, y: 0 }}
       exit={{ opacity: 0 }}
       transition={{ duration: 0.3 }}
+      onClick={handlePopupClick}
     >
       <div className="about">
         <div className="about-image">

@@ -2,6 +2,10 @@
 import { motion } from "framer-motion";
 
 const Adhoc = () => {
+  const handlePopupClick = (e) => {
+    e.stopPropagation();
+  };
+
   return (
     <motion.div
       className="popup"
@@ -9,6 +13,7 @@ const Adhoc = () => {
       animate={{ opacity: 1, y: 0 }}
       exit={{ opacity: 0 }}
       transition={{ duration: 0.3 }}
+      onClick={handlePopupClick}
     >
       <div className="projects">
         <img src="/inprogress.png" loading="eager"></img>

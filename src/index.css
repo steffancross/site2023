@@ -141,7 +141,7 @@ a:visited {
 
 .projects p {
   width: 85%;
-  font-size: 0.8rem;
+  font-size: 0.9rem;
 }
 
 .projects h3 {
@@ -194,6 +194,7 @@ a:visited {
 }
 
 .about-text p {
+  font-size: 0.8rem;
   margin-bottom: 0px;
 }
 
@@ -237,5 +238,9 @@ a:visited {
   .about-text {
     width: 80%;
     font-size: 0.7rem;
+  }
+
+  .projects p {
+    font-size: 0.8rem;
   }
 }
