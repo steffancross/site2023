@@ -1,5 +1,4 @@
 /* eslint-disable react/no-unescaped-entities */
-import image from "../assets/idc.png";
 import { motion } from "framer-motion";
 
 const Idc = () => {
@@ -12,7 +11,7 @@ const Idc = () => {
       transition={{ duration: 0.3 }}
     >
       <div className="projects">
-        <img src={image}></img>
+        <img src="/idc.png" loading="eager"></img>
         <div className="title-and-links">
           <h3>Infinite Dungeon Crawler</h3>
           <div className="links">

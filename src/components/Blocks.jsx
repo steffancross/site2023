@@ -1,5 +1,4 @@
 /* eslint-disable react/no-unescaped-entities */
-import image from "../assets/blocks.png";
 import { motion } from "framer-motion";
 
 const Blocks = () => {
@@ -12,7 +11,7 @@ const Blocks = () => {
       transition={{ duration: 0.3 }}
     >
       <div className="projects">
-        <img src={image}></img>
+        <img src="/blocks.png" loading="eager"></img>
         <div className="title-and-links">
           <h3>Blocks</h3>
           <div className="links">

@@ -1,5 +1,4 @@
 /* eslint-disable react/no-unescaped-entities */
-import image from "../assets/inprogress.png";
 import { motion } from "framer-motion";
 
 const Adhoc = () => {
@@ -12,7 +11,7 @@ const Adhoc = () => {
       transition={{ duration: 0.3 }}
     >
       <div className="projects">
-        <img src={image}></img>
+        <img src="/inprogress.png" loading="eager"></img>
         <div className="title-and-links">
           <h3>Ad.Hoc</h3>
           <div className="links">

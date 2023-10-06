@@ -1,4 +1,4 @@
-import { useState } from "react";
+import { useState, useEffect } from "react";
 import { DvdScreensaver } from "stffn-react-dvd-screensaver";
 import { useSelector, useDispatch } from "react-redux";
 import { motion, AnimatePresence } from "framer-motion";
@@ -9,7 +9,6 @@ import {
   setBlocks,
   setOverlay,
 } from "./components/MainSlice";
-import resume from "./assets/SteffanCross_Resume.pdf";
 import Overlay from "./components/Overlay";
 
 function App() {
@@ -17,6 +16,7 @@ function App() {
   const speed = 3;
   const [freeze, setFreeze] = useState(true);
   const [freezeSwitch, setFreezeSwitch] = useState(false);
+  const [hasLoaded, setHasLoaded] = useState(false);
   const overlay = useSelector((state) => state.main.overlay);
 
   const movers = [
@@ -32,7 +32,7 @@ function App() {
       href: "https://www.linkedin.com/in/steffancross/",
     },
     { text: "LEGACY SITE", href: "https://steffancross.github.io/" },
-    { text: "RESUME", href: resume },
+    { text: "RESUME", href: "/SteffanCross_Resume.pdf" },
     { text: "GITHUB", href: "https://github.com/steffancross" },
   ];
 
@@ -72,9 +72,15 @@ function App() {
     setFreezeSwitch((prev) => !prev);
   };
 
-  setTimeout(() => {
-    setFreeze((prev) => !prev);
-  }, 1000);
+  useEffect(() => {
+    if (!hasLoaded) {
+      setTimeout(() => {
+        setFreeze(false);
+      }, 1000);
+
+      setHasLoaded(true);
+    }
+  }, [hasLoaded]);
 
   return (
     <>

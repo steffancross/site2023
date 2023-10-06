@@ -1,5 +1,4 @@
 /* eslint-disable react/no-unescaped-entities */
-import image from "../assets/about.jpg";
 import { motion } from "framer-motion";
 
 const About = () => {
@@ -13,7 +12,7 @@ const About = () => {
     >
       <div className="about">
         <div className="about-image">
-          <img src={image} />
+          <img src="/about.jpg" loading="eager" />
         </div>
         <div className="about-text">
           <p>Hello, I'm Steffan</p>
