@@ -13,7 +13,7 @@ import Overlay from "./components/Overlay";
 
 function App() {
   const dispatch = useDispatch();
-  const [speed, setSpeed] = useState(window.innerWidth < 640 ? 1.5 : 2.5);
+  const [speed, setSpeed] = useState(window.innerWidth < 640 ? 1.5 : 2.2);
   const [freeze, setFreeze] = useState(true);
   const [freezeSwitch, setFreezeSwitch] = useState(false);
   const [hasLoaded, setHasLoaded] = useState(false);
@@ -50,6 +50,10 @@ function App() {
   };
 
   const handlePopup = (name) => {
+    if (!freeze) {
+      setFreeze(true);
+      setFreezeSwitch(true);
+    }
     dispatch(setOverlay(true));
 
     switch (name) {
