@@ -13,7 +13,7 @@ import Overlay from "./components/Overlay";
 
 function App() {
   const dispatch = useDispatch();
-  const [speed, setSpeed] = useState(window.innerWidth < 640 ? 1.5 : 2.2);
+  const [speed, setSpeed] = useState(window.innerWidth < 640 ? 1.5 : 2);
   const [freeze, setFreeze] = useState(true);
   const [freezeSwitch, setFreezeSwitch] = useState(false);
   const [hasLoaded, setHasLoaded] = useState(false);
@@ -42,10 +42,10 @@ function App() {
     },
     visible: {
       opacity: 1,
-      transition: {
-        duration: 2,
-        delay: 1,
-      },
+      // transition: {
+      //   duration: 2,
+      //   delay: 1,
+      // },
     },
   };
 
@@ -130,6 +130,7 @@ function App() {
                 variants={moversVariant}
                 initial="initial"
                 animate="visible"
+                transition={{ duration: 2, delay: 1 + index * 0.3 }}
               >
                 {item.text}
               </motion.a>
@@ -140,6 +141,7 @@ function App() {
                 variants={moversVariant}
                 initial="initial"
                 animate="visible"
+                transition={{ duration: 2, delay: 1 + index * 0.3 }}
               >
                 {item.text}
               </motion.div>
