@@ -16,7 +16,7 @@ const Blocks = () => {
       onClick={handlePopupClick}
     >
       <div className="projects">
-        <img src="/blocks.png" loading="eager"></img>
+        <img src="/blocks.jpg" loading="eager"></img>
         <div className="title-and-links">
           <h3>Blocks</h3>
           <div className="links">
