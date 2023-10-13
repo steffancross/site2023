@@ -1,10 +1,16 @@
 /* eslint-disable react/no-unescaped-entities */
 import { motion } from "framer-motion";
+import { useEffect } from "react";
 
 const About = () => {
   const handlePopupClick = (e) => {
     e.stopPropagation();
   };
+
+  useEffect(() => {
+    const image = new Image();
+    image.src = "/about2.jpg";
+  }, []);
 
   return (
     <motion.div
@@ -17,7 +23,7 @@ const About = () => {
     >
       <div className="about">
         <div className="about-image">
-          <img src="/about.jpg" loading="eager" />
+          <img src="/about2.jpg" loading="eager" />
         </div>
         <div className="about-text">
           <p>Hello, I'm Steffan</p>

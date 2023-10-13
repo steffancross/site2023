@@ -1,10 +1,16 @@
 /* eslint-disable react/no-unescaped-entities */
 import { motion } from "framer-motion";
+import { useEffect } from "react";
 
 const Blocks = () => {
   const handlePopupClick = (e) => {
     e.stopPropagation();
   };
+
+  useEffect(() => {
+    const image = new Image();
+    image.src = "/blocks.jpg";
+  }, []);
 
   return (
     <motion.div
