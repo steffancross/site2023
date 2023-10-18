@@ -77,7 +77,7 @@ function App() {
   };
 
   useEffect(() => {
-    setSpeed(window.innerWidth < 640 ? 1.5 : 2.5);
+    setSpeed(window.innerWidth < 640 ? 1.5 : 2);
 
     if (!hasLoaded) {
       setTimeout(() => {
