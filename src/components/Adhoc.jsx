@@ -11,7 +11,7 @@ const Adhoc = () => {
 
   useEffect(() => {
     const image = new Image();
-    image.src = "/inprogress.png";
+    image.src = "/adhoc.png";
     image.addEventListener("load", () => {
       setImageLoaded(true);
     });
@@ -29,7 +29,7 @@ const Adhoc = () => {
           onClick={handlePopupClick}
         >
           <div className="projects">
-            <img src="/inprogress.png" loading="eager"></img>
+            <img src="/adhoc.png" loading="eager"></img>
             <div className="title-and-links">
               <h3>Ad.Hoc</h3>
               <div className="links">
@@ -39,6 +39,13 @@ const Adhoc = () => {
                   rel="noreferrer"
                 >
                   Github
+                </a>
+                <a
+                  href="https://adhoc-production.up.railway.app/"
+                  target="_blank"
+                  rel="noreferrer"
+                >
+                  Live Site
                 </a>
               </div>
             </div>
