@@ -58,7 +58,9 @@ const Adhoc = () => {
                 strictly literary content. Whether it's a single word or a
                 passage that evokes a certain feeling, this application serves
                 as a space to store and categorize such, ensuring they are not
-                lost or forgotten.
+                lost or forgotten. If you'd like to see an account with info
+                already filled in, please reach out and I'll give you the
+                details.
               </p>
             </div>
           </div>
